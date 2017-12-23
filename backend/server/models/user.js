@@ -18,7 +18,12 @@ let UserSchema = new Schema({
         required: [true, 'Password is required'],
         minlength: [8, 'Last name must have at least 8 characters']
     },
-    media: [{type : Schema.Types.ObjectId, ref: 'Media'}]
+    alias: {
+        type: String,
+        required: [true, 'Alias is required']
+    },
+    media: [{type : Schema.Types.ObjectId, ref: 'Media'}],
+    likedMedia: [{type : Schema.Types.ObjectId, ref: 'Media'}],
 }, {timestamps : true})
 
 // On save hook, encrypt password

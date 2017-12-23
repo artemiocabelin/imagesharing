@@ -10,6 +10,7 @@ let MediaSchema = new Schema({
         type: String,
         required: [true, 'Type is required'],
     },
+    likes: [{type: Schema.Types.ObjectId, ref: 'User'}],
     _owner: {type: Schema.Types.ObjectId, ref: 'User'},
 }, {timestamps : true})
 

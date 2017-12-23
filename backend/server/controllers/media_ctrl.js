@@ -86,5 +86,20 @@ module.exports = {
                 res.status(403).send({ error : "User does not match media's owner id"})
             }
         })
+    },
+
+    like: (req, res, next) => {
+        const id = req.user._id;
+        const mediaId = req.params.id;
+        User.findById(id).then(user => {
+            const isInLikedMedia = user.likedMedia.some((media) => { return media.equals(mediaId)})
+            if(isInLikedMedia) {
+                User.findOneAndUpdate({_id: id}, {$pull: { likedMedia: mediaId }}).then(user => res.json(user))
+                Media.findOneAndUpdate({_id: mediaId}, {$pull: { likes: id}})
+            } else {
+                User.findOneAndUpdate({_id: id}, {$push: { likedMedia: mediaId }}).then(user => res.json(user))
+                Media.findOneAndUpdate({_id: mediaId}, {$push: { likes: id}})
+            }
+        })
     }
 }

@@ -15,6 +15,7 @@ module.exports = function(app) {
     app.get('/api/media/:id', requireAuth, media.getByUser);
     app.delete('/api/media/:id', requireAuth, media.delete);
     app.put('/api/media/:id', requireAuth, media.edit);
+    app.get('/api/media/:id/like', requireAuth, media.like);
     // -----
 
     // login reg
