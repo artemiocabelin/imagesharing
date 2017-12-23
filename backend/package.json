@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "* Have at least 2 terminals up and running * *make sure to commit changes as needed.* * Before starting:      * Set up server folder.     * Do step 1, 2, 3 of **Angular Workflow Section**     * Then Do Step 0 to 5 of **Node Workflow Section**     * Then Do a Launch using the steps below.     * if successful test launch proceed to the next workflow sections. #### Terminal 1 ``` cd public ng build -w ``` #### Terminal 2 ``` cd .. nodemon server.js ``` ---",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "clone": "^2.1.1",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "jwt-simple": "^0.5.1",
+    "mongoose": "^4.13.7",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.1",
+    "passport-local": "^1.0.0"
+  }
+}
