@@ -6,14 +6,16 @@ import { BrowserRouter } from 'react-router-dom'
 
 import './styles/index.css';
 import reducers from './reducers'
-import App from './components/App';
+import App from './components/component_app';
 import registerServiceWorker from './registerServiceWorker';
 
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
     <Provider store={createStoreWithMiddleware(reducers)}>
-        <App />
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </Provider>
     , document.getElementById('root'));
 registerServiceWorker();
